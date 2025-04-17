@@ -1,0 +1,66 @@
+Design Concept for ProAlgaeTech Website
+Theme: "Harnessing Nature's Green Potential"
+Color Palette:
+
+Deep teal (#006064) - representing deep water
+Vibrant algae green (#38B09D) - representing algae growth
+Soft aqua (#80DEEA) - representing clear water
+White (#FFFFFF) - for clean, scientific look
+Dark charcoal (#263238) - for text and contrast
+
+Layout Structure:
+1. Hero Section
+
+A full-width dynamic header with gentle wave animations
+Overlaid text: "Algae are the diverse and potential organisms for the future economy"
+A semi-transparent microscopic view of algae cells as background
+"Learn More" call-to-action button that smoothly scrolls down
+
+2. About Us Section
+
+Split design with circular bubble-like imagery on one side
+Concise company description on the other
+Use organic, flowing shapes to separate sections
+
+3. Vision & Mission
+
+Parallax scrolling effect with layers of algae illustrations
+Three circular cards for Mission, Background, and Why ProAlgaeTech
+Each with hover effect that resembles water ripples
+
+4. Services
+
+Card-based layout with subtle green gradients
+Each service accompanied by a relevant icon (microscope, flask, plant, etc.)
+Animated transitions between services on hover/click
+
+5. Contact Form
+
+Clean, minimalist design with floating label inputs
+Background featuring abstract patterns inspired by algae under microscope
+Gentle animation for form submission
+
+6. Footer
+
+Wave-shaped divider leading into the footer
+Newsletter subscription with a droplet-shaped submit button
+Social media icons with ripple effect on hover
+
+Special Features:
+
+Interactive Algae Visualization
+
+Small floating algae particles that respond to cursor movement
+Educational popups when users hover over different algae types
+
+
+Water Animation
+
+Subtle flowing water effect in the background of certain sections
+Translucent overlays creating depth and movement
+
+
+Responsive Bubbles
+
+Organic bubble elements that float up slowly throughout the page
+Different sizes and opacities for visual interest
