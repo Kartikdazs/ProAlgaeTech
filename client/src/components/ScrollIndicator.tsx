@@ -85,19 +85,7 @@ const ScrollIndicator: React.FC<ScrollIndicatorProps> = ({ targetId }) => {
         </svg>
       </motion.div>
       
-      <style>{`
-        @keyframes dash {
-          0% {
-            stroke-dashoffset: 300;
-          }
-          50% {
-            stroke-dashoffset: 0;
-          }
-          100% {
-            stroke-dashoffset: -300;
-          }
-        }
-      `}</style>
+      {/* Animation keyframes moved to index.css */}
     </motion.div>
   );
 };

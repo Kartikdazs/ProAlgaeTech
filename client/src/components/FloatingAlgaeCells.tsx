@@ -223,48 +223,7 @@ const FloatingAlgaeCells = () => {
         </motion.div>
       ))}
       
-      <style jsx>{`
-        .algae-tooltip {
-          position: absolute;
-          background-color: rgba(255, 255, 255, 0.95);
-          padding: 8px 12px;
-          border-radius: 6px;
-          box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
-          pointer-events: none;
-          opacity: 0;
-          transition: opacity 0.3s ease;
-          z-index: 10;
-          max-width: 200px;
-          text-align: center;
-          color: #006064;
-          font-size: 0.875rem;
-        }
-        
-        .algae-tooltip::after {
-          content: '';
-          position: absolute;
-          bottom: -6px;
-          left: 50%;
-          transform: translateX(-50%);
-          width: 0;
-          height: 0;
-          border-left: 6px solid transparent;
-          border-right: 6px solid transparent;
-          border-top: 6px solid rgba(255, 255, 255, 0.95);
-        }
-        
-        .algae-tooltip strong {
-          display: block;
-          margin-bottom: 4px;
-          color: #006064;
-        }
-        
-        .algae-tooltip p {
-          margin: 0;
-          font-size: 0.75rem;
-          opacity: 0.9;
-        }
-      `}</style>
+      {/* Styles moved to index.css */}
     </div>
   );
 };

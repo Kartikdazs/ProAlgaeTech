@@ -67,21 +67,7 @@ const BubbleEffect = () => {
       className="bubble-container" 
       style={{ position: 'absolute', width: '100%', height: '100%', top: 0, left: 0, overflow: 'hidden', zIndex: 0 }}
     >
-      <style jsx>{`
-        @keyframes bubble {
-          0% {
-            transform: translateY(100vh) scale(0);
-            opacity: 0;
-          }
-          50% {
-            opacity: 0.6;
-          }
-          100% {
-            transform: translateY(-100px) scale(1);
-            opacity: 0;
-          }
-        }
-      `}</style>
+      {/* Animation keyframes moved to index.css */}
     </div>
   );
 };

@@ -204,23 +204,7 @@ const Navbar = () => {
         )}
       </AnimatePresence>
       
-      <style>{`
-        .ripple {
-          position: absolute;
-          border-radius: 50%;
-          background-color: rgba(255, 255, 255, 0.4);
-          transform: scale(0);
-          animation: ripple-animation 0.6s ease-out;
-          pointer-events: none;
-        }
-        
-        @keyframes ripple-animation {
-          to {
-            transform: scale(2);
-            opacity: 0;
-          }
-        }
-      `}</style>
+      {/* Animation keyframes moved to index.css */}
     </nav>
   );
 };
