@@ -1,5 +1,4 @@
 import { useState, useEffect, useRef } from "react";
-import { motion, useInView, AnimatePresence } from "framer-motion";
 
 interface StatisticProps {
   label: string;
@@ -19,13 +18,36 @@ const Statistic = ({
   icon 
 }: StatisticProps) => {
   const [count, setCount] = useState(0);
-  const elementRef = useRef<HTMLDivElement>(null);
-  const isInView = useInView(elementRef, { once: true, margin: "-100px 0px" });
+  const [isVisible, setIsVisible] = useState(false);
   const [hasAnimated, setHasAnimated] = useState(false);
   const [showPulse, setShowPulse] = useState(false);
+  const elementRef = useRef<HTMLDivElement>(null);
   
+  // Set up intersection observer to detect when element comes into view
   useEffect(() => {
-    if (isInView && !hasAnimated) {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        if (entries[0].isIntersecting) {
+          setIsVisible(true);
+        }
+      },
+      { threshold: 0.1, rootMargin: "-100px 0px" }
+    );
+    
+    if (elementRef.current) {
+      observer.observe(elementRef.current);
+    }
+    
+    return () => {
+      if (elementRef.current) {
+        observer.unobserve(elementRef.current);
+      }
+    };
+  }, []);
+  
+  // Handle counter animation
+  useEffect(() => {
+    if (isVisible && !hasAnimated) {
       setHasAnimated(true);
       
       // Start counter animation after delay
@@ -50,7 +72,7 @@ const Statistic = ({
       
       return () => clearInterval(timer);
     }
-  }, [isInView, value, duration, delay, hasAnimated]);
+  }, [isVisible, value, duration, delay, hasAnimated]);
   
   // Easing function for smoother animation
   const easeOutExpo = (x: number): number => {
@@ -58,27 +80,27 @@ const Statistic = ({
   };
   
   return (
-    <motion.div 
-      className="text-center bg-white/70 backdrop-blur-sm rounded-xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 border border-[#80DEEA]/30 relative overflow-hidden group"
-      initial={{ opacity: 0, y: 20 }}
-      animate={isInView ? { opacity: 1, y: 0 } : {}}
-      transition={{ duration: 0.6, delay }}
+    <div 
       ref={elementRef}
-      whileHover={{ y: -5 }}
+      className={`text-center bg-white/70 backdrop-blur-sm rounded-xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 border border-[#80DEEA]/30 relative overflow-hidden group transform hover:-translate-y-1 ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-5"}`}
+      style={{ 
+        transitionDelay: `${delay}s`,
+        transitionProperty: "opacity, transform",
+        transitionDuration: "0.6s",
+        transitionTimingFunction: "cubic-bezier(0.4, 0, 0.2, 1)"
+      }}
     >
       {/* Background circle decoration */}
       <div className="absolute -right-8 -top-8 w-24 h-24 rounded-full bg-[#E0F7FA] opacity-20 group-hover:bg-[#80DEEA] group-hover:opacity-30 transition-colors duration-300"></div>
       
       {/* Icon above the counter */}
       {icon && (
-        <motion.div 
-          className="mb-3 text-[#38B09D] flex justify-center"
-          initial={{ scale: 0.8 }}
-          animate={{ scale: 1 }}
-          transition={{ duration: 0.5, delay: delay + 0.3 }}
+        <div 
+          className={`mb-3 text-[#38B09D] flex justify-center transition-transform duration-500 ease-out ${isVisible ? "scale-100" : "scale-75"}`}
+          style={{ transitionDelay: `${delay + 0.3}s` }}
         >
           {icon}
-        </motion.div>
+        </div>
       )}
       
       {/* Counter with animated pulse effect */}
@@ -88,33 +110,19 @@ const Statistic = ({
           <span className="text-[#38B09D]">{suffix}</span>
         </h3>
         
-        <AnimatePresence>
-          {showPulse && (
-            <motion.div 
-              className="absolute inset-0 rounded-full bg-[#38B09D]"
-              initial={{ scale: 1, opacity: 0.7 }}
-              animate={{ scale: 1.5, opacity: 0 }}
-              exit={{ opacity: 0 }}
-              transition={{ 
-                duration: 1.5, 
-                repeat: 2,
-                repeatType: "loop"
-              }}
-            />
-          )}
-        </AnimatePresence>
+        {showPulse && (
+          <div className="absolute inset-0 rounded-full bg-[#38B09D] animate-statistic-pulse"></div>
+        )}
       </div>
       
       <p className="mt-3 text-[#263238] font-medium relative z-10">{label}</p>
       
       {/* Bottom decoration */}
-      <motion.div 
-        className="w-16 h-1 bg-[#38B09D] rounded-full mx-auto mt-3 relative z-10"
-        initial={{ width: 0 }}
-        animate={{ width: "4rem" }}
-        transition={{ duration: 0.6, delay: delay + 1 }}
+      <div 
+        className={`h-1 bg-[#38B09D] rounded-full mx-auto mt-3 relative z-10 transition-all duration-600 ease-out ${isVisible ? "w-16" : "w-0"}`}
+        style={{ transitionDelay: `${delay + 1}s` }}
       />
-    </motion.div>
+    </div>
   );
 };
 
