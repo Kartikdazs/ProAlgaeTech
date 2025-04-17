@@ -1,0 +1,116 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Open+Sans:wght@300;400;600&display=swap');
+
+.water-animate {
+  position: relative;
+  overflow-x: hidden;
+}
+
+.water-animate::before {
+  content: '';
+  position: absolute;
+  width: 200%;
+  height: 200%;
+  top: -50%;
+  left: -50%;
+  background: radial-gradient(ellipse at center, rgba(128, 222, 234, 0) 0%, rgba(128, 222, 234, 0.1) 100%);
+  animation: water 15s linear infinite;
+  z-index: 1;
+  pointer-events: none;
+}
+
+@keyframes water {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.algae-particle {
+  position: absolute;
+  background-color: rgba(56, 176, 157, 0.3);
+  border-radius: 50%;
+  z-index: 1;
+}
+
+.contact-input {
+  border-bottom: 2px solid #38B09D;
+  transition: all 0.3s;
+}
+
+.contact-input:focus {
+  border-color: #006064;
+  box-shadow: 0 2px 0 0 #006064;
+}
+
+.floating-label {
+  position: absolute;
+  pointer-events: none;
+  top: 12px;
+  left: 10px;
+  transition: 0.2s ease all;
+  color: #263238;
+  opacity: 0.7;
+}
+
+.contact-input:focus ~ .floating-label,
+.contact-input:not(:placeholder-shown) ~ .floating-label {
+  top: -10px;
+  font-size: 12px;
+  color: #006064;
+  opacity: 1;
+}
+
+.service-card:hover .icon-container {
+  transform: translateY(-10px);
+  background-color: #006064;
+  color: white;
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-20px);
+  }
+}
+
+@keyframes ripple {
+  0% {
+    transform: scale(0.95);
+    opacity: 0.7;
+  }
+  50% {
+    transform: scale(1.05);
+    opacity: 0.9;
+  }
+  100% {
+    transform: scale(0.95);
+    opacity: 0.7;
+  }
+}
+
+@keyframes bubble {
+  0% {
+    transform: translateY(100vh) scale(0);
+    opacity: 0;
+  }
+  50% {
+    opacity: 0.6;
+  }
+  100% {
+    transform: translateY(-100px) scale(1);
+    opacity: 0;
+  }
+}
+
+/* Ensure we're using Montserrat and Open Sans */
+.font-montserrat {
+  font-family: 'Montserrat', sans-serif;
+}
+
+.font-opensans {
+  font-family: 'Open Sans', sans-serif;
+}
