@@ -226,6 +226,88 @@
   font-size: 0.875rem;
 }
 
+/* Custom ping animations for scroll indicator */
+@keyframes ping-slow {
+  0% {
+    transform: translate(-50%, -50%) scale(0.8);
+    opacity: 0.6;
+  }
+  50% {
+    opacity: 0.4;
+  }
+  100% {
+    transform: translate(-50%, -50%) scale(1.5);
+    opacity: 0;
+  }
+}
+
+@keyframes ping-medium {
+  0% {
+    transform: translate(-50%, -50%) scale(0.8);
+    opacity: 0.8;
+  }
+  50% {
+    opacity: 0.5;
+  }
+  100% {
+    transform: translate(-50%, -50%) scale(1.3);
+    opacity: 0;
+  }
+}
+
+.animate-ping-slow {
+  animation: ping-slow 3s cubic-bezier(0, 0, 0.2, 1) infinite;
+}
+
+.animate-ping-medium {
+  animation: ping-medium 2s cubic-bezier(0, 0, 0.2, 1) infinite;
+}
+
+.dash-animation {
+  animation: dash 3s ease-in-out infinite;
+}
+
+/* Algae cell glow effects */
+.algae-glow-green {
+  filter: drop-shadow(0 0 8px rgba(128, 222, 234, 0.4));
+  transition: filter 0.3s ease;
+}
+
+.algae-glow-teal {
+  filter: drop-shadow(0 0 8px rgba(0, 121, 107, 0.4));
+  transition: filter 0.3s ease;
+}
+
+.algae-glow-red {
+  filter: drop-shadow(0 0 8px rgba(183, 28, 28, 0.4));
+  transition: filter 0.3s ease;
+}
+
+.algae-glow-forest {
+  filter: drop-shadow(0 0 8px rgba(56, 142, 60, 0.4));
+  transition: filter 0.3s ease;
+}
+
+.algae-glow-green:hover,
+.cell-hover.algae-glow-green {
+  filter: drop-shadow(0 0 15px rgba(128, 222, 234, 0.8));
+}
+
+.algae-glow-teal:hover,
+.cell-hover.algae-glow-teal {
+  filter: drop-shadow(0 0 15px rgba(0, 121, 107, 0.8));
+}
+
+.algae-glow-red:hover,
+.cell-hover.algae-glow-red {
+  filter: drop-shadow(0 0 15px rgba(183, 28, 28, 0.8));
+}
+
+.algae-glow-forest:hover,
+.cell-hover.algae-glow-forest {
+  filter: drop-shadow(0 0 15px rgba(56, 142, 60, 0.8));
+}
+
 .algae-tooltip::after {
   content: '';
   position: absolute;
