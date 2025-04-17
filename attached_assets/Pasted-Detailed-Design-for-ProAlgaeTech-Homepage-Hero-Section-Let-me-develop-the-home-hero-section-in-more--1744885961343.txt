@@ -1,0 +1,78 @@
+Detailed Design for ProAlgaeTech Homepage Hero Section
+Let me develop the home/hero section in more detail. This will be the first thing visitors see, so it should make a strong impression while clearly communicating what ProAlgaeTech does.
+Hero Section Components
+Header Navigation Bar
+
+Position: Fixed at top
+Style: Semi-transparent with gradient effect (teal to algae green)
+Elements:
+
+Left: ProAlgaeTech logo (stylized text with a small algae icon)
+Right: Navigation menu with hover effects that resemble water ripples
+
+Home
+About Us
+Services
+Projects
+Algae Solutions
+Articles & Publications
+Contact Us
+
+
+Mobile: Hamburger menu icon that transforms into bubbles when clicked
+
+
+
+Main Hero Visual
+
+Background: Layered design with 3 elements:
+
+Base layer: Gradient from deep teal (#006064) to vibrant algae green (#38B09D)
+Middle layer: Soft, translucent video loop showing actual algae gently moving in water
+Top layer: Animated floating micro-bubbles and particle effects representing microalgae
+
+
+
+Hero Content
+
+Headline: Large, bold text that fades in: "Algae are the diverse and potential organisms for the future economy"
+Subheading: Smaller text appearing after headline: "Harnessing nature's green potential for sustainable solutions"
+Call-to-Action: Two buttons side by side:
+
+"Discover Our Solutions" - Primary button with vibrant green background
+"Learn About Algae" - Secondary button with transparent background and teal border
+
+
+Both buttons have subtle wave animation on hover
+
+
+
+Animated Elements
+
+Floating Algae Cells: 5-7 highly detailed, semi-transparent illustrations of different algae cells floating slowly across the screen
+Counter Statistics: Animated counter showing:
+
+"X+ Years Experience"
+"Y+ Successful Projects"
+"Z+ Algae Strains"
+
+
+Scroll Indicator: Subtle animated arrow or wave pattern at the bottom suggesting users scroll down
+
+Transition to About Section
+
+As the user scrolls down, the hero section transitions with a wave-like effect
+The wave "wipes" upward to reveal the About section
+Some of the floating algae elements continue to float up into the about section, creating continuity
+
+Technical Implementation Details
+
+Parallax Effect: Background layers move at different speeds while scrolling
+Performance Optimization: The video background automatically pauses when not in view
+Accessibility: All animated elements have reduced motion options for users who prefer less movement
+Responsiveness: On mobile, the layout adjusts to a vertical stack with appropriately sized elements
+
+Interactive Feature
+
+Mouse/Touch Interaction: The floating algae particles subtly respond to cursor movement or touch, moving slightly away from the pointer
+Information Tooltips: When hovering over an algae cell for 2 seconds, a small information card appears with the name and a brief fact about that algae type
