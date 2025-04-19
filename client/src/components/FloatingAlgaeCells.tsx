@@ -25,7 +25,6 @@ interface TooltipData {
 
 const FloatingAlgaeCells = () => {
   const containerRef = useRef<HTMLDivElement>(null);
-  const cells = useRef<AlgaeCell[]>([]);
   const [activeTooltip, setActiveTooltip] = useState<TooltipData | null>(null);
   const tooltipTimeout = useRef<NodeJS.Timeout | null>(null);
   const [hoveredCellId, setHoveredCellId] = useState<number | null>(null);
@@ -54,7 +53,9 @@ const FloatingAlgaeCells = () => {
     }
   ];
   
-  const createCells = () => {
+  // Create cells immediately on component definition
+  // instead of waiting for useEffect to run
+  const generateCells = (): AlgaeCell[] => {
     const newCells: AlgaeCell[] = [];
     const cellCount = 8; // Increased number of floating cells
     
@@ -65,14 +66,17 @@ const FloatingAlgaeCells = () => {
         y: Math.random() * 70 + 15, // 15-85% of container height
         size: Math.random() * 60 + 40, // 40-100px
         rotate: Math.random() * 360, // Random initial rotation
-        delay: Math.random() * 2, // Random delay
+        delay: Math.random() * 0.5, // Reduced delay for faster initial appearance
         duration: Math.random() * 10 + 15, // 15-25s for full animation cycle
         type: Math.floor(Math.random() * 4) + 1 // 1-4 cell types
       });
     }
     
-    cells.current = newCells;
+    return newCells;
   };
+  
+  // Initialize cells immediately
+  const cells = useRef<AlgaeCell[]>(generateCells());
   
   const handleMouseMove = (e: MouseEvent) => {
     if (!containerRef.current) return;
@@ -180,9 +184,8 @@ const FloatingAlgaeCells = () => {
     }, 100);
   };
   
+  // Set up event listeners when component mounts
   useEffect(() => {
-    createCells();
-    
     if (containerRef.current) {
       containerRef.current.addEventListener('mousemove', handleMouseMove);
     }
@@ -247,7 +250,7 @@ const FloatingAlgaeCells = () => {
           <div className={`w-full h-full relative transition-all duration-300 ${hoveredCellId === cell.id ? 'scale-110' : ''}`}>
             {/* Cell type 1: Chlorella - circular cell with inner details */}
             {cell.type === 1 && (
-              <div className="w-full h-full rounded-full bg-gradient-to-br from-[#38B09D]/60 to-[#80DEEA]/80 backdrop-blur-sm border border-white/30 shadow-lg flex items-center justify-center overflow-hidden">
+              <div className="w-full h-full rounded-full bg-gradient-to-br from-[#00695C]/60 to-[#26A69A]/80 backdrop-blur-sm border border-white/30 shadow-lg flex items-center justify-center overflow-hidden">
                 <div className="absolute w-1/2 h-1/2 rounded-full bg-white/20 top-1/4 left-1/4"></div>
                 <div className="absolute w-1/4 h-1/4 rounded-full bg-white/40 bottom-1/4 right-1/4"></div>
               </div>
@@ -255,7 +258,7 @@ const FloatingAlgaeCells = () => {
             
             {/* Cell type 2: Spirulina - spiral-shaped */}
             {cell.type === 2 && (
-              <div className="w-full h-full rounded-full bg-gradient-to-br from-[#00796B]/60 to-[#B2DFDB]/80 backdrop-blur-sm border border-white/30 shadow-lg flex items-center justify-center overflow-hidden">
+              <div className="w-full h-full rounded-full bg-gradient-to-br from-[#004D40]/60 to-[#4DB6AC]/80 backdrop-blur-sm border border-white/30 shadow-lg flex items-center justify-center overflow-hidden">
                 <motion.svg 
                   viewBox="0 0 100 100" 
                   className="w-3/4 h-3/4 text-white/70"
@@ -264,27 +267,27 @@ const FloatingAlgaeCells = () => {
                 >
                   <path d="M50,20 Q70,30 60,50 T50,80" stroke="currentColor" fill="none" strokeWidth="8" strokeLinecap="round" />
                 </motion.svg>
-                <div className="absolute inset-0 rounded-full bg-gradient-to-t from-[#00796B]/40 to-transparent"></div>
+                <div className="absolute inset-0 rounded-full bg-gradient-to-t from-[#004D40]/40 to-transparent"></div>
               </div>
             )}
             
             {/* Cell type 3: Haematococcus - reddish tint with cell details */}
             {cell.type === 3 && (
-              <div className="w-full h-full rounded-full bg-gradient-to-br from-[#B71C1C]/40 to-[#80DEEA]/60 backdrop-blur-sm border border-white/30 shadow-lg overflow-hidden">
+              <div className="w-full h-full rounded-full bg-gradient-to-br from-[#880E4F]/40 to-[#26A69A]/60 backdrop-blur-sm border border-white/30 shadow-lg overflow-hidden">
                 <motion.div 
-                  className="absolute inset-0 bg-[#B71C1C]/20"
+                  className="absolute inset-0 bg-[#880E4F]/20"
                   animate={{ opacity: [0.2, 0.4, 0.2] }}
                   transition={{ duration: 3, repeat: Infinity }}
                 ></motion.div>
-                <div className="absolute w-3/5 h-3/5 rounded-full bg-[#B71C1C]/30 top-1/5 left-1/5"></div>
+                <div className="absolute w-3/5 h-3/5 rounded-full bg-[#880E4F]/30 top-1/5 left-1/5"></div>
               </div>
             )}
             
             {/* Cell type 4: Dunaliella - irregular shape with inner motion */}
             {cell.type === 4 && (
-              <div className="w-full h-full rounded-[40%_30%_50%_30%] bg-gradient-to-br from-[#388E3C]/60 to-[#C8E6C9]/80 backdrop-blur-sm border border-white/30 shadow-lg overflow-hidden">
+              <div className="w-full h-full rounded-[40%_30%_50%_30%] bg-gradient-to-br from-[#1B5E20]/60 to-[#81C784]/80 backdrop-blur-sm border border-white/30 shadow-lg overflow-hidden">
                 <motion.div 
-                  className="absolute inset-0 rounded-[40%_30%_50%_30%] bg-gradient-to-br from-[#388E3C]/0 to-[#388E3C]/30"
+                  className="absolute inset-0 rounded-[40%_30%_50%_30%] bg-gradient-to-br from-[#1B5E20]/0 to-[#1B5E20]/30"
                   animate={{ rotate: 360 }}
                   transition={{ duration: 25, repeat: Infinity, ease: "linear" }}
                 ></motion.div>
@@ -324,7 +327,7 @@ const FloatingAlgaeCells = () => {
       <AnimatePresence>
         {activeTooltip && (
           <motion.div 
-            className="algae-tooltip absolute z-30 bg-white/95 backdrop-blur-sm rounded-xl p-4 shadow-xl border border-[#80DEEA]/50 pointer-events-none max-w-xs"
+            className="algae-tooltip absolute z-30 bg-white/95 backdrop-blur-sm rounded-xl p-4 shadow-xl border border-[#004D40]/30 pointer-events-none max-w-xs"
             style={{ 
               left: activeTooltip.x,
               top: activeTooltip.y
@@ -334,12 +337,12 @@ const FloatingAlgaeCells = () => {
             exit={{ opacity: 0, y: 10, scale: 0.9 }}
             transition={{ duration: 0.3 }}
           >
-            <h4 className="text-[#006064] font-montserrat font-bold text-lg mb-1">{activeTooltip.content.name}</h4>
-            <p className="text-[#263238] text-sm mb-2">{activeTooltip.content.fact}</p>
-            <div className="text-xs text-[#006064]/70 italic">{activeTooltip.content.applications}</div>
+            <h4 className="text-[#004D40] font-montserrat font-bold text-lg mb-1">{activeTooltip.content.name}</h4>
+            <p className="text-[#00695C] text-sm mb-2">{activeTooltip.content.fact}</p>
+            <div className="text-xs text-[#00796B]/80 italic">{activeTooltip.content.applications}</div>
             
             {/* Decorative element */}
-            <div className="absolute -bottom-2 left-1/2 transform -translate-x-1/2 w-4 h-4 bg-white/95 border-r border-b border-[#80DEEA]/50 rotate-45"></div>
+            <div className="absolute -bottom-2 left-1/2 transform -translate-x-1/2 w-4 h-4 bg-white/95 border-r border-b border-[#004D40]/30 rotate-45"></div>
           </motion.div>
         )}
       </AnimatePresence>
