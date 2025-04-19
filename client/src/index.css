@@ -269,43 +269,43 @@
 
 /* Algae cell glow effects */
 .algae-glow-green {
-  filter: drop-shadow(0 0 8px rgba(128, 222, 234, 0.4));
+  filter: drop-shadow(0 0 8px rgba(0, 105, 92, 0.4));
   transition: filter 0.3s ease;
 }
 
 .algae-glow-teal {
-  filter: drop-shadow(0 0 8px rgba(0, 121, 107, 0.4));
+  filter: drop-shadow(0 0 8px rgba(0, 77, 64, 0.4));
   transition: filter 0.3s ease;
 }
 
 .algae-glow-red {
-  filter: drop-shadow(0 0 8px rgba(183, 28, 28, 0.4));
+  filter: drop-shadow(0 0 8px rgba(120, 25, 25, 0.4));
   transition: filter 0.3s ease;
 }
 
 .algae-glow-forest {
-  filter: drop-shadow(0 0 8px rgba(56, 142, 60, 0.4));
+  filter: drop-shadow(0 0 8px rgba(27, 94, 32, 0.4));
   transition: filter 0.3s ease;
 }
 
 .algae-glow-green:hover,
 .cell-hover.algae-glow-green {
-  filter: drop-shadow(0 0 15px rgba(128, 222, 234, 0.8));
+  filter: drop-shadow(0 0 15px rgba(0, 105, 92, 0.8));
 }
 
 .algae-glow-teal:hover,
 .cell-hover.algae-glow-teal {
-  filter: drop-shadow(0 0 15px rgba(0, 121, 107, 0.8));
+  filter: drop-shadow(0 0 15px rgba(0, 77, 64, 0.8));
 }
 
 .algae-glow-red:hover,
 .cell-hover.algae-glow-red {
-  filter: drop-shadow(0 0 15px rgba(183, 28, 28, 0.8));
+  filter: drop-shadow(0 0 15px rgba(120, 25, 25, 0.8));
 }
 
 .algae-glow-forest:hover,
 .cell-hover.algae-glow-forest {
-  filter: drop-shadow(0 0 15px rgba(56, 142, 60, 0.8));
+  filter: drop-shadow(0 0 15px rgba(27, 94, 32, 0.8));
 }
 
 /* Statistics Counter Pulse Animation */
@@ -350,11 +350,12 @@
 .algae-tooltip strong {
   display: block;
   margin-bottom: 4px;
-  color: #006064;
+  color: #004D40;
 }
 
 .algae-tooltip p {
   margin: 0;
   font-size: 0.75rem;
   opacity: 0.9;
+  color: #00796B;
 }

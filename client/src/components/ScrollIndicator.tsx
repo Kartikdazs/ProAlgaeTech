@@ -123,22 +123,22 @@ const ScrollIndicator: React.FC<ScrollIndicatorProps> = ({ targetId }) => {
     >
       {/* Pulsing circles behind the scroll indicator */}
       <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 -z-10">
-        <div className="h-16 w-16 rounded-full absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 bg-[#80DEEA]/20 animate-ping-slow"></div>
-        <div className="h-12 w-12 rounded-full absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 bg-[#80DEEA]/30 animate-ping-medium"></div>
+        <div className="h-16 w-16 rounded-full absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 bg-[#00695C]/20 animate-ping-slow"></div>
+        <div className="h-12 w-12 rounded-full absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 bg-[#00695C]/30 animate-ping-medium"></div>
       </div>
       
       <div 
-        className="p-4 bg-white bg-opacity-80 backdrop-blur-sm rounded-full shadow-lg border border-[#80DEEA]/30 transition-shadow duration-300"
+        className="p-4 bg-white bg-opacity-80 backdrop-blur-sm rounded-full shadow-lg border border-[#004D40]/30 transition-shadow duration-300"
         style={{ 
           transform: `translateY(${bounceOffset}px)`,
           boxShadow: isHovered 
-            ? '0 10px 25px -5px rgba(0, 96, 100, 0.3)' 
+            ? '0 10px 25px -5px rgba(0, 77, 64, 0.3)' 
             : '0 4px 6px -1px rgba(0, 0, 0, 0.1)'
         }}
       >
         <div className="flex flex-col items-center">
           <span 
-            className={`text-center font-semibold text-md mb-2 transition-all duration-300 ${isHovered ? 'text-[#38B09D] scale-110' : 'text-[#006064] scale-100'}`}
+            className={`text-center font-semibold text-md mb-2 transition-all duration-300 ${isHovered ? 'text-[#00695C] scale-110' : 'text-[#004D40] scale-100'}`}
           >
             Scroll Down
           </span>
@@ -159,7 +159,7 @@ const ScrollIndicator: React.FC<ScrollIndicatorProps> = ({ targetId }) => {
             >
               <path 
                 d="M15 2 L15 28 M15 28 L7 20 M15 28 L23 20" 
-                stroke={isHovered ? "#38B09D" : "#006064"} 
+                stroke={isHovered ? "#00796B" : "#004D40"} 
                 strokeWidth="3" 
                 strokeLinecap="round" 
                 strokeLinejoin="round"
@@ -181,8 +181,8 @@ const ScrollIndicator: React.FC<ScrollIndicatorProps> = ({ targetId }) => {
         >
           <defs>
             <linearGradient id="scrollGradient" x1="0%" y1="0%" x2="100%" y2="100%">
-              <stop offset="0%" stopColor="#80DEEA" />
-              <stop offset="100%" stopColor="#38B09D" />
+              <stop offset="0%" stopColor="#26A69A" />
+              <stop offset="100%" stopColor="#004D40" />
             </linearGradient>
           </defs>
           <path 

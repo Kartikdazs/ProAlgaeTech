@@ -82,7 +82,7 @@ const Statistic = ({
   return (
     <div 
       ref={elementRef}
-      className={`text-center bg-white/70 backdrop-blur-sm rounded-xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 border border-[#80DEEA]/30 relative overflow-hidden group transform hover:-translate-y-1 ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-5"}`}
+      className={`text-center bg-white/70 backdrop-blur-sm rounded-xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 border border-[#004D40]/20 relative overflow-hidden group transform hover:-translate-y-1 ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-5"}`}
       style={{ 
         transitionDelay: `${delay}s`,
         transitionProperty: "opacity, transform",
@@ -91,12 +91,12 @@ const Statistic = ({
       }}
     >
       {/* Background circle decoration */}
-      <div className="absolute -right-8 -top-8 w-24 h-24 rounded-full bg-[#E0F7FA] opacity-20 group-hover:bg-[#80DEEA] group-hover:opacity-30 transition-colors duration-300"></div>
+      <div className="absolute -right-8 -top-8 w-24 h-24 rounded-full bg-[#004D40] opacity-10 group-hover:bg-[#00796B] group-hover:opacity-20 transition-colors duration-300"></div>
       
       {/* Icon above the counter */}
       {icon && (
         <div 
-          className={`mb-3 text-[#38B09D] flex justify-center transition-transform duration-500 ease-out ${isVisible ? "scale-100" : "scale-75"}`}
+          className={`mb-3 text-[#00796B] flex justify-center transition-transform duration-500 ease-out ${isVisible ? "scale-100" : "scale-75"}`}
           style={{ transitionDelay: `${delay + 0.3}s` }}
         >
           {icon}
@@ -105,13 +105,13 @@ const Statistic = ({
       
       {/* Counter with animated pulse effect */}
       <div className="relative">
-        <h3 className="text-4xl md:text-5xl font-bold text-[#006064] flex items-center justify-center">
+        <h3 className="text-4xl md:text-5xl font-bold text-[#004D40] flex items-center justify-center">
           <span>{count}</span>
-          <span className="text-[#38B09D]">{suffix}</span>
+          <span className="text-[#00796B]">{suffix}</span>
         </h3>
         
         {showPulse && (
-          <div className="absolute inset-0 rounded-full bg-[#38B09D] animate-statistic-pulse"></div>
+          <div className="absolute inset-0 rounded-full bg-[#00695C] animate-statistic-pulse"></div>
         )}
       </div>
       
@@ -119,7 +119,7 @@ const Statistic = ({
       
       {/* Bottom decoration */}
       <div 
-        className={`h-1 bg-[#38B09D] rounded-full mx-auto mt-3 relative z-10 transition-all duration-600 ease-out ${isVisible ? "w-16" : "w-0"}`}
+        className={`h-1 bg-[#00695C] rounded-full mx-auto mt-3 relative z-10 transition-all duration-600 ease-out ${isVisible ? "w-16" : "w-0"}`}
         style={{ transitionDelay: `${delay + 1}s` }}
       />
     </div>
