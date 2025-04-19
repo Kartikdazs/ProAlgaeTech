@@ -250,7 +250,7 @@ const FloatingAlgaeCells = () => {
           <div className={`w-full h-full relative transition-all duration-300 ${hoveredCellId === cell.id ? 'scale-110' : ''}`}>
             {/* Cell type 1: Chlorella - circular cell with inner details */}
             {cell.type === 1 && (
-              <div className="w-full h-full rounded-full bg-gradient-to-br from-[#00695C]/60 to-[#26A69A]/80 backdrop-blur-sm border border-white/30 shadow-lg flex items-center justify-center overflow-hidden">
+              <div className="w-full h-full rounded-full bg-gradient-to-br from-[#38B09D]/60 to-[#80DEEA]/80 backdrop-blur-sm border border-white/30 shadow-lg flex items-center justify-center overflow-hidden">
                 <div className="absolute w-1/2 h-1/2 rounded-full bg-white/20 top-1/4 left-1/4"></div>
                 <div className="absolute w-1/4 h-1/4 rounded-full bg-white/40 bottom-1/4 right-1/4"></div>
               </div>
@@ -258,7 +258,7 @@ const FloatingAlgaeCells = () => {
             
             {/* Cell type 2: Spirulina - spiral-shaped */}
             {cell.type === 2 && (
-              <div className="w-full h-full rounded-full bg-gradient-to-br from-[#004D40]/60 to-[#4DB6AC]/80 backdrop-blur-sm border border-white/30 shadow-lg flex items-center justify-center overflow-hidden">
+              <div className="w-full h-full rounded-full bg-gradient-to-br from-[#00796B]/60 to-[#B2DFDB]/80 backdrop-blur-sm border border-white/30 shadow-lg flex items-center justify-center overflow-hidden">
                 <motion.svg 
                   viewBox="0 0 100 100" 
                   className="w-3/4 h-3/4 text-white/70"
@@ -267,27 +267,27 @@ const FloatingAlgaeCells = () => {
                 >
                   <path d="M50,20 Q70,30 60,50 T50,80" stroke="currentColor" fill="none" strokeWidth="8" strokeLinecap="round" />
                 </motion.svg>
-                <div className="absolute inset-0 rounded-full bg-gradient-to-t from-[#004D40]/40 to-transparent"></div>
+                <div className="absolute inset-0 rounded-full bg-gradient-to-t from-[#00796B]/40 to-transparent"></div>
               </div>
             )}
             
             {/* Cell type 3: Haematococcus - reddish tint with cell details */}
             {cell.type === 3 && (
-              <div className="w-full h-full rounded-full bg-gradient-to-br from-[#880E4F]/40 to-[#26A69A]/60 backdrop-blur-sm border border-white/30 shadow-lg overflow-hidden">
+              <div className="w-full h-full rounded-full bg-gradient-to-br from-[#D32F2F]/50 to-[#EF9A9A]/60 backdrop-blur-sm border border-white/30 shadow-lg overflow-hidden">
                 <motion.div 
-                  className="absolute inset-0 bg-[#880E4F]/20"
-                  animate={{ opacity: [0.2, 0.4, 0.2] }}
+                  className="absolute inset-0 bg-[#B71C1C]/30"
+                  animate={{ opacity: [0.3, 0.5, 0.3] }}
                   transition={{ duration: 3, repeat: Infinity }}
                 ></motion.div>
-                <div className="absolute w-3/5 h-3/5 rounded-full bg-[#880E4F]/30 top-1/5 left-1/5"></div>
+                <div className="absolute w-3/5 h-3/5 rounded-full bg-[#B71C1C]/40 top-1/5 left-1/5"></div>
               </div>
             )}
             
             {/* Cell type 4: Dunaliella - irregular shape with inner motion */}
             {cell.type === 4 && (
-              <div className="w-full h-full rounded-[40%_30%_50%_30%] bg-gradient-to-br from-[#1B5E20]/60 to-[#81C784]/80 backdrop-blur-sm border border-white/30 shadow-lg overflow-hidden">
+              <div className="w-full h-full rounded-[40%_30%_50%_30%] bg-gradient-to-br from-[#388E3C]/60 to-[#C8E6C9]/80 backdrop-blur-sm border border-white/30 shadow-lg overflow-hidden">
                 <motion.div 
-                  className="absolute inset-0 rounded-[40%_30%_50%_30%] bg-gradient-to-br from-[#1B5E20]/0 to-[#1B5E20]/30"
+                  className="absolute inset-0 rounded-[40%_30%_50%_30%] bg-gradient-to-br from-[#388E3C]/0 to-[#388E3C]/30"
                   animate={{ rotate: 360 }}
                   transition={{ duration: 25, repeat: Infinity, ease: "linear" }}
                 ></motion.div>
